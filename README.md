@@ -1,3 +1,0 @@
-# EISSS16JeyaratnamReimringer
-
-README
