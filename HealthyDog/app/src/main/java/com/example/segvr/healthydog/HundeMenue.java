@@ -24,6 +24,7 @@ public class HundeMenue extends AppCompatActivity {
         Button aButton = (Button) findViewById(R.id.aktivitaeten_button);
         Button rButton = (Button) findViewById(R.id.routen_button);
 
+        // Buttonevent zum Health Menü
         assert hButton != null;
         hButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -32,6 +33,7 @@ public class HundeMenue extends AppCompatActivity {
             }
         });
 
+        // Buttonevent zum Hunde Pass
         assert hPassButton != null;
         hPassButton.setOnClickListener(new View.OnClickListener(){
 
@@ -41,6 +43,7 @@ public class HundeMenue extends AppCompatActivity {
             }
         });
 
+        // Buttonevent zu Fitness
         assert fButton != null;
         fButton.setOnClickListener(new View.OnClickListener(){
 
@@ -50,6 +53,7 @@ public class HundeMenue extends AppCompatActivity {
             }
         });
 
+        // Buttonevent zu Aktivitäten
         assert aButton != null;
         aButton.setOnClickListener(new View.OnClickListener(){
 
@@ -59,6 +63,7 @@ public class HundeMenue extends AppCompatActivity {
             }
         });
 
+        // Buttonevent zu Routen
         assert rButton != null;
         rButton.setOnClickListener(new View.OnClickListener(){
 
@@ -68,27 +73,27 @@ public class HundeMenue extends AppCompatActivity {
             }
         });
     }
-
+    // Healthy Menü
     public void goToHealthyMenue(){
         Intent intent = new Intent(this, HealthyMenue.class);
         startActivity(intent);
     }
-
+    // Hunde Pass
     public void goToHundePass(){
         Intent passIntent = new Intent(this, HundePass.class);
         startActivity(passIntent);
     }
-
+    // Fitness
     public void goToFitness(){
         Intent fitIntent = new Intent(this, Fitness.class);
         startActivity(fitIntent);
     }
-
+    // Aktivitäten
     public void goToAktivitaeten(){
         Intent aktIntent = new Intent(this, Aktivitaeten.class);
         startActivity(aktIntent);
     }
-
+    // Routen
     public void goToRouten(){
         Intent rIntent = new Intent(this, Routen.class);
         startActivity(rIntent);

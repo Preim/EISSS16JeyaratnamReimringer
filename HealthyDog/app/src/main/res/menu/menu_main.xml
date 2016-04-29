@@ -7,5 +7,5 @@
           android:title="@string/settings"
           android:icon="@drawable/ic_view_headline_black_24dp"
           app:showAsAction="always"
-    ></item>
+    />
 </menu>

@@ -18,6 +18,7 @@ public class HealthyMenue extends AppCompatActivity {
         Button foodButton = (Button) findViewById(R.id.foodplaner_button);
         Button rezButton = (Button) findViewById(R.id.rezepte_button);
 
+        // Buttonevent zu Food Planer
         assert foodButton != null;
         foodButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -26,6 +27,8 @@ public class HealthyMenue extends AppCompatActivity {
             }
         });
 
+
+       // Buttonevent zu Rezepte
         assert rezButton != null;
         rezButton.setOnClickListener(new View.OnClickListener(){
 
@@ -35,11 +38,13 @@ public class HealthyMenue extends AppCompatActivity {
             }
         });
     }
+
+    // Food Planer
     public void goToFoodPlaner(){
         Intent intent = new Intent(this, FoodPlaner.class);
         startActivity(intent);
     }
-
+    // Rezepte
     public void goToRezepte(){
         Intent rezIntent = new Intent(this, Rezepte.class);
         startActivity(rezIntent);

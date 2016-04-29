@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button hunde_button = (Button) findViewById(R.id.hunde_button);
 
-
+        // Buttonevent zum Menü
         assert hunde_button != null;
         hunde_button.setOnClickListener (new View.OnClickListener(){
             @Override

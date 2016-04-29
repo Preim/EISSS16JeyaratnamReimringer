@@ -63,22 +63,19 @@
         android:layout_alignEnd="@+id/nameText"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/impfungenButton"
         android:id="@+id/impfungenButton"
-        android:layout_alignTop="@+id/arztTButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_above="@+id/arztTButton" android:layout_centerHorizontal="true"
+        android:layout_marginBottom="46dp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/arztTButton"
         android:id="@+id/arztTButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -86,8 +83,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Geschlecht:"
         android:id="@+id/genderText"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignLeft="@+id/rasseText"
-        android:layout_alignStart="@+id/rasseText"/>
+        android:layout_below="@+id/groesseText" android:layout_alignLeft="@+id/groesseText"
+        android:layout_alignStart="@+id/groesseText" android:layout_marginTop="5dp"/>
 
 </RelativeLayout>

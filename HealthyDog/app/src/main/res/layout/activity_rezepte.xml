@@ -11,28 +11,31 @@
     tools:context="com.example.segvr.healthydog.healthy.Rezepte">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/kat_button"
         android:id="@+id/kat_button"
-        android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
-        android:layout_marginTop="152dp"/>
+        android:layout_marginTop="109dp" android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/filter_button"
         android:id="@+id/filter_button"
-        android:layout_below="@+id/kat_button" android:layout_centerHorizontal="true"/>
+        android:layout_alignTop="@+id/kat_button" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/mliste_button"
         android:id="@+id/mliste_button"
-        android:layout_below="@+id/filter_button" android:layout_centerHorizontal="true"/>
+        android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" android:layout_marginBottom="177dp"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/erstellen_button"
         android:id="@+id/erstellen_button"
-        android:layout_below="@+id/mliste_button" android:layout_centerHorizontal="true"/>
+        android:layout_alignTop="@+id/mliste_button" android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 </RelativeLayout>

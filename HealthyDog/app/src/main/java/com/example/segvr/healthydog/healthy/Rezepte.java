@@ -16,7 +16,7 @@ public class Rezepte extends AppCompatActivity {
         setContentView(R.layout.activity_rezepte);
         Button katButton = (Button) findViewById(R.id.kat_button);
 
-
+        // Buttonevent zu Kategorien
         assert katButton != null;
         katButton.setOnClickListener(new View.OnClickListener(){
 
@@ -26,7 +26,6 @@ public class Rezepte extends AppCompatActivity {
             }
         });
     }
-
     public void goToKat(){
         Intent intent = new Intent(this, Kategorien.class);
         startActivity(intent);

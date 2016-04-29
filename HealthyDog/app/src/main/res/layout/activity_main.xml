@@ -10,7 +10,7 @@
     tools:context="com.example.segvr.healthydog.MainActivity">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/hunde_button"
         android:id="@+id/hunde_button"
@@ -19,13 +19,13 @@
         android:layout_alignParentStart="true"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/hund_hin_button"
         android:id="@+id/hunde_button2"
         android:layout_alignTop="@+id/hunde_button"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true" android:layout_alignParentStart="false"/>
 
     <ImageButton
         android:layout_width="150dp"

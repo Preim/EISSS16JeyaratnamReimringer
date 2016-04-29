@@ -40,6 +40,8 @@
         </activity>
         <activity android:name=".healthy.Kategorien">
         </activity>
+        <activity android:name=".healthy.RezeptTabelle">
+        </activity>
     </application>
 
 </manifest>
