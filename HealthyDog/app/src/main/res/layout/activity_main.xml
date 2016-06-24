@@ -25,7 +25,9 @@
         android:id="@+id/hunde_button2"
         android:layout_alignTop="@+id/hunde_button"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" android:layout_alignParentStart="false"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false" />
 
     <ImageButton
         android:layout_width="150dp"
