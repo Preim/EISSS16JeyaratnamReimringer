@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         bRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                assert etcheck != null;
+
                 if (passwort.equals(pwWiederholen)) {
                     new PostDataTask().execute("http://192.168.0.102:1000/api/user/");
                     Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich", Toast.LENGTH_SHORT).show();

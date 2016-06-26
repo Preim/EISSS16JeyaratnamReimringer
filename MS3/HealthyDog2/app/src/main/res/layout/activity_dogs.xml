@@ -9,14 +9,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Dogs.DogsActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bDog1"
-        android:height="15dp"
-        android:width="100dp"
-        android:id="@+id/bDog1"
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/ibDog1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/chapeau"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/ibDogNew"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -58,7 +58,8 @@
 
         <activity
             android:name=".Routen.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".Health.RezeptHinzufuegenActivity"></activity>
     </application>
 
 </manifest>

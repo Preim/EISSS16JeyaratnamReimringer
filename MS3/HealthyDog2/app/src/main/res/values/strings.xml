@@ -25,4 +25,7 @@
     <string name="tvTemp">31</string>
     <string name="tvLF">50%</string>
     <string name="tvDruck">1000mb</string>
+    <string name="bNeuesRezept">Rezept Hinzufügen</string>
+    <string name="etRezeptname" />
+    <string name="bRezHinz">Hinzufügen</string>
 </resources>

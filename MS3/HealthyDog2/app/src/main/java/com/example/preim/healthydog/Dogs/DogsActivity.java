@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.preim.healthydog.MenuActivity;
 import com.example.preim.healthydog.R;
@@ -15,10 +16,10 @@ public class DogsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dogs);
-        Button bDog1 = (Button) findViewById(R.id.bDog1);
+        ImageButton ibDog1 = (ImageButton) findViewById(R.id.ibDog1);
 
-        assert bDog1 != null;
-        bDog1.setOnClickListener(new View.OnClickListener(){
+        assert ibDog1 != null;
+        ibDog1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 goToMenue();
