@@ -1,6 +1,7 @@
 package com.example.preim.healthydog;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,9 @@ public class MenuActivity extends AppCompatActivity {
         ImageButton bWetter = (ImageButton) findViewById(R.id.bWetter);
         ImageButton bRouten = (ImageButton) findViewById(R.id.bRouten);
 
+        //Action bar
+        //getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setTitle("Menü");
 
         assert bHundepass != null;
         bHundepass.setOnClickListener(new View.OnClickListener() {

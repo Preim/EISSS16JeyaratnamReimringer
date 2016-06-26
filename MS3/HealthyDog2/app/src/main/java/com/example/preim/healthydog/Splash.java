@@ -11,6 +11,7 @@ public class Splash extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
+        getSupportActionBar().hide();
         Thread myThread = new Thread(){
             @Override
             public void run() {
