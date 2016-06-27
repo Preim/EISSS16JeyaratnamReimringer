@@ -12,9 +12,33 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bMaps"
-        android:id="@+id/bMaps"
+        android:width="200dp"
+        android:height="80dp"
+        android:layout_marginTop="75dp"
+        android:text="@string/bRouten"
+        android:id="@+id/bRouten"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="116dp" />
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="200dp"
+        android:height="80dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/bRErstellen"
+        android:id="@+id/bRErstellen"
+        android:layout_below="@+id/bRouten"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="200dp"
+        android:height="80dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/bKarte"
+        android:id="@+id/bKarte"
+        android:layout_below="@+id/bRErstellen"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

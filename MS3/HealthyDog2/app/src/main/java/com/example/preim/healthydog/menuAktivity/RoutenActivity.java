@@ -15,10 +15,10 @@ public class RoutenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routen);
 
-        final Button bMaps = (Button) findViewById(R.id.bMaps);
+        final Button bKarte = (Button) findViewById(R.id.bKarte);
 
-        assert bMaps != null;
-        bMaps.setOnClickListener(new View.OnClickListener() {
+        assert bKarte != null;
+        bKarte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent mapsIntent = new Intent(RoutenActivity.this, MapsActivity.class);

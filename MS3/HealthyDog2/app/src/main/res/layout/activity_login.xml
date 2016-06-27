@@ -55,5 +55,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/bLogin"
         android:layout_alignEnd="@+id/bLogin" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ohne Login"
+        android:id="@+id/bOhneLogin" android:layout_below="@+id/bRegister"
+        android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/bRegister" android:layout_alignEnd="@+id/bRegister"/>
 
 </RelativeLayout>

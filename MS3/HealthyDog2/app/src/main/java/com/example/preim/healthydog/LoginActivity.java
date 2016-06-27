@@ -3,11 +3,8 @@ package com.example.preim.healthydog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final Button bRegister = (Button) findViewById(R.id.bRegister);
         final Button bLogin = (Button) findViewById(R.id.bLogin);
+        final Button bOhneLogin = (Button) findViewById(R.id.bOhneLogin);
 
         assert bRegister != null;
         bRegister.setOnClickListener(new View.OnClickListener() {
@@ -54,17 +52,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        assert bOhneLogin != null;
+        bOhneLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent = new Intent(LoginActivity.this, DogsActivity.class);
+                LoginActivity.this.startActivity(loginIntent);
+            }
+        });
         assert bLogin != null;
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginIntent = new Intent(LoginActivity.this, DogsActivity.class);
-                LoginActivity.this.startActivity(loginIntent);
-                //new GetDataTask().execute("http://192.168.0.102:1000/api/user");
+                //Intent loginIntent = new Intent(LoginActivity.this, DogsActivity.class);
+                //LoginActivity.this.startActivity(loginIntent);
+                new GetDataTask().execute("http://10.3.139.197:3000/api/user/");
             }
         });
     }
-    class GetDataTask extends AsyncTask<String, Void, String> {
+    class GetDataTask extends AsyncTask<String, Void, Void> {
 
         ProgressDialog progressDialog;
 
@@ -74,52 +80,29 @@ public class LoginActivity extends AppCompatActivity {
             super.onPreExecute();
 
             progressDialog = new ProgressDialog(LoginActivity.this);
-            progressDialog.setMessage("Checking Information...");
+            progressDialog.setMessage("Loading data...");
             progressDialog.show();
         }
 
         @Override
-        protected String doInBackground(String... params) {
+        protected Void doInBackground(String... params) {
             try {
                 return getData(params[0]);
             } catch (IOException ex) {
-                return "Network error!";
+                //return "Network error!";
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+
+            return null;
         }
 
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            final EditText etUsername = (EditText) findViewById(R.id.etUsername);
-            final EditText etPasswort = (EditText) findViewById(R.id.etPasswort);
-
 
             //set data response to textView
             //mResult.setText(result);
-            try {
-                JSONObject  jsonRootObject = new JSONObject();
-
-                //Get the instance of JSONArray that contains JSONObjects
-                JSONArray jsonArray = jsonRootObject.optJSONArray("User");
-
-                //Iterate the jsonArray and print the info of JSONObjects
-                for(int i=0; i < jsonArray.length(); i++){
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                    String username = jsonObject.optString("username");
-                    String passwort = jsonObject.optString("passwort");
-                    assert etUsername != null;
-                    assert etPasswort != null;
-                    if (username.equals(etUsername.getText()) && passwort.equals(etPasswort.getText())){
-                        Intent loginIntent = new Intent(LoginActivity.this, DogsActivity.class);
-                        LoginActivity.this.startActivity(loginIntent);
-                        Toast.makeText(LoginActivity.this, "Login erfolgreich", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(LoginActivity.this, "Login fehlgeschlagen", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-            } catch (JSONException e) {e.printStackTrace();}
 
 
             //cancel progress dialog
@@ -128,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
 
-        private String getData(String urlPath) throws IOException {
+        private Void getData(String urlPath) throws IOException, JSONException {
             StringBuilder result = new StringBuilder();
             BufferedReader bufferedReader = null;
 
@@ -147,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                 bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
-                    result.append(line);//.append("\n");
+                    result.append(line);
                 }
             } finally {
                 if (bufferedReader != null) {
@@ -155,8 +138,28 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
 
+            String finalJson = result.toString();
 
-            return result.toString();
+            JSONObject parentObject = new JSONObject(finalJson);
+            JSONArray parentArray = parentObject.getJSONArray("user");
+
+            for (int i= 0; i< parentArray.length(); i++) {
+                JSONObject finalObject = parentArray.getJSONObject(0);
+                String username = finalObject.getString("username");
+                String passwort = finalObject.getString("passwort");
+                EditText etUsername = (EditText) findViewById(R.id.etUsername);
+                EditText etPasswort = (EditText) findViewById(R.id.etPasswort);
+                if (etUsername != null && etPasswort != null) {
+                    if (username.equals(etUsername.getText().toString()) && passwort.equals(etPasswort.getText().toString())) {
+                        Intent loginIntent = new Intent(LoginActivity.this, DogsActivity.class);
+                        LoginActivity.this.startActivity(loginIntent);
+                        Toast.makeText(LoginActivity.this, "Login erfolgreich", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Login fehlgeschlagen", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+            return null;
         }
     }
 }

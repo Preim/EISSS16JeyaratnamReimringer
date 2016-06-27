@@ -28,4 +28,7 @@
     <string name="bNeuesRezept">Rezept Hinzufügen</string>
     <string name="etRezeptname" />
     <string name="bRezHinz">Hinzufügen</string>
+    <string name="bRouten">Routen</string>
+    <string name="bKarte">Karte</string>
+    <string name="bRErstellen">Route erstellen</string>
 </resources>
