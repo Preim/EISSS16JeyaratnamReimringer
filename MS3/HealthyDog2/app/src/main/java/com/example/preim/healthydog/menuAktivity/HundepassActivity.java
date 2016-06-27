@@ -34,15 +34,22 @@ public class HundepassActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hundepass);
+<<<<<<< Updated upstream
 
         Globals g = Globals.getInstance();
         final String ipAdress = g.getData();
 
         new GetDataTask().execute("http://" + ipAdress + "/api/user/");
+=======
+        //Führt die GETData mit der Datenbank adresse aus
+        new GetDataTask().execute("http://10.3.139.197:3000/api/user/");
+>>>>>>> Stashed changes
 
+        // Buttons werden zugewiesen
         Button bAtermin = (Button) findViewById(R.id.bATermin);
         final Button bImpfung = (Button) findViewById(R.id.bImpfung);
 
+        // Hier wereden Die Buttons verlinkt
         assert bAtermin != null;
         bAtermin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,21 +68,23 @@ public class HundepassActivity extends AppCompatActivity {
             }
         });
     }
-
+    // Die Klasse GetData stellt die verbindung zum Server und den Daten
     class GetDataTask extends AsyncTask<String, Void, Void> {
 
         ProgressDialog progressDialog;
 
+        // Vor dem Ausführen
         @Override
         protected void onPreExecute() {
 
             super.onPreExecute();
 
+
             progressDialog = new ProgressDialog(HundepassActivity.this);
             progressDialog.setMessage("Loading data...");
             progressDialog.show();
         }
-
+        // Background fehler abfrage
         @Override
         protected Void doInBackground(String... params) {
             try {
@@ -89,6 +98,7 @@ public class HundepassActivity extends AppCompatActivity {
             return null;
         }
 
+        //wenns Ausgeführt ist, dann wird diese MEthode angewendet
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
@@ -109,6 +119,7 @@ public class HundepassActivity extends AppCompatActivity {
 
             try {
                 //Initialize and config request, then connect to server
+                // Anfrage und Verbindung zum Server
                 URL url = new URL(urlPath);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setReadTimeout(10000 /* milliseconds */);
@@ -118,6 +129,7 @@ public class HundepassActivity extends AppCompatActivity {
                 urlConnection.connect();
 
                 //Read data response from server
+                // Liest die Daten durch
                 InputStream inputStream = urlConnection.getInputStream();
                 bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 String line;
@@ -135,8 +147,12 @@ public class HundepassActivity extends AppCompatActivity {
             JSONObject parentObject = new JSONObject(finalJson);
             JSONArray parentArray = parentObject.getJSONArray("hund");
 
+            // Hier wird das Array durchgegangen
+
             for (int i= 0; i< parentArray.length(); i++) {
                 JSONObject finalObject = parentArray.getJSONObject(0);
+
+
                 String hundename = finalObject.getString("name");
                 String hunderasse = finalObject.getString("rasse");
                 double gewicht = finalObject.getDouble("gewicht");
@@ -148,6 +164,8 @@ public class HundepassActivity extends AppCompatActivity {
                 TextView tvGroesse = (TextView) findViewById(R.id.tvGroesse);
                 TextView tvAlter = (TextView) findViewById(R.id.tvAlter);
 
+
+                // Die jeweiligen namen wird es hier zugewiesen
                 tvHundename.setText("Name: " + hundename);
                 tvHunderasse.setText("Rasse: " + hunderasse);
                 tvGewicht.setText("Gewicht: " + gewicht);

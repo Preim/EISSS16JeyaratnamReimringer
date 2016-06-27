@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+        // Buttons werden zugewiesen
         final Button bRegister = (Button) findViewById(R.id.bRegister);
         final Button bLogin = (Button) findViewById(R.id.bLogin);
         final Button bOhneLogin = (Button) findViewById(R.id.bOhneLogin);
@@ -74,12 +75,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    // Die Klasse GetData stellt die verbindung zum Server und den Daten
     class GetDataTask extends AsyncTask<String, Void, Void> {
 
         ProgressDialog progressDialog;
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute(){
 
             super.onPreExecute();
 
@@ -88,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog.show();
         }
 
+        //Fehler abfrage
         @Override
         protected Void doInBackground(String... params) {
             try {
@@ -114,13 +117,15 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         }
-
+        // Hier ist der Konstruktor
+        // Stellt die Verbindung her und gibt die Daten
         private Void getData(String urlPath) throws IOException, JSONException {
             StringBuilder result = new StringBuilder();
             BufferedReader bufferedReader = null;
 
             try {
                 //Initialize and config request, then connect to server
+                //Anfrage und verbindung zum Server
                 URL url = new URL(urlPath);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setReadTimeout(10000 /* milliseconds */);
