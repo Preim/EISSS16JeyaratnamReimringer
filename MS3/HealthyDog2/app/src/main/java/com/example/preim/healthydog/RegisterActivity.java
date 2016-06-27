@@ -38,6 +38,9 @@ public class RegisterActivity extends AppCompatActivity {
         assert etcheckcheck != null;
         final String pwWiederholen = etcheckcheck.getText().toString();
 
+        Globals g = Globals.getInstance();
+        final String ipAdress = g.getData();
+
 
         final Button bRegister = (Button) findViewById(R.id.bRegister);
         assert bRegister != null;
@@ -46,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (passwort.equals(pwWiederholen)) {
-                    new PostDataTask().execute("http://192.168.0.102:1000/api/user/");
+                    new PostDataTask().execute("http://" + ipAdress + "/api/user/");
                     Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich", Toast.LENGTH_SHORT).show();
                     Intent regiIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                     RegisterActivity.this.startActivity(regiIntent);

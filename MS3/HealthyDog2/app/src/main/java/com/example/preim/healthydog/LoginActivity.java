@@ -30,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Globals g = Globals.getInstance();
+        final String ipAdress = g.getData();
+
         // action bar
         //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         //getSupportActionBar().setCustomView(R.layout.abs_layout);
@@ -42,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button bRegister = (Button) findViewById(R.id.bRegister);
         final Button bLogin = (Button) findViewById(R.id.bLogin);
         final Button bOhneLogin = (Button) findViewById(R.id.bOhneLogin);
+
 
         assert bRegister != null;
         bRegister.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Intent loginIntent = new Intent(LoginActivity.this, DogsActivity.class);
                 //LoginActivity.this.startActivity(loginIntent);
-                new GetDataTask().execute("http://10.3.139.197:3000/api/user/");
+                new GetDataTask().execute("http://" + ipAdress  + "/api/user/");
             }
         });
     }

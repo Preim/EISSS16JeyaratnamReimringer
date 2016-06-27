@@ -35,7 +35,10 @@ public class HundepassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hundepass);
 
-        new GetDataTask().execute("http://10.3.139.197:3000/api/user/");
+        Globals g = Globals.getInstance();
+        final String ipAdress = g.getData();
+
+        new GetDataTask().execute("http://" + ipAdress + "/api/user/");
 
         Button bAtermin = (Button) findViewById(R.id.bATermin);
         final Button bImpfung = (Button) findViewById(R.id.bImpfung);
