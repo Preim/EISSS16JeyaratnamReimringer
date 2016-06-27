@@ -34,16 +34,15 @@ public class HundepassActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hundepass);
-<<<<<<< Updated upstream
 
         Globals g = Globals.getInstance();
         final String ipAdress = g.getData();
 
-        new GetDataTask().execute("http://" + ipAdress + "/api/user/");
-=======
         //Führt die GETData mit der Datenbank adresse aus
-        new GetDataTask().execute("http://10.3.139.197:3000/api/user/");
->>>>>>> Stashed changes
+        new GetDataTask().execute("http://" + ipAdress + "/api/user/");
+
+
+
 
         // Buttons werden zugewiesen
         Button bAtermin = (Button) findViewById(R.id.bATermin);
